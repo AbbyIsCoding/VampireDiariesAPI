@@ -4,6 +4,8 @@ import { character } from './char.model';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { title } from 'process';
+import { exec } from 'child_process';
+import e from 'express';
 
 @Injectable()
 export class characterService{
@@ -23,6 +25,35 @@ export class characterService{
         // console.log(result); 
         return result.id as string; // returning the new id of what you made and making it a string 
     }
+
+    async gettAllGuys(){
+        const chars = await this.characterModel.find().exec();
+        const guyChar = chars.filter((e)=> e.gender === "Male");
+        return guyChar.map(g => ({ id: g.id,
+            name: g.name,
+            title: g.title,
+            species: g.species,
+            gender: g.gender,
+            actor: g.actor, 
+            picture: g.picture, 
+        }));
+    }
+
+    async getAllGals(){
+        const chars = await this.characterModel.find().exec();
+        const galChar = chars.filter((e)=> e.gender === "Female");
+        return galChar.map(g => ({ id: g.id,
+            name: g.name,
+            title: g.title,
+            species: g.species,
+            gender: g.gender,
+            actor: g.actor, 
+            picture: g.picture,   
+        }));
+
+    }
+
+    
 
     //Patch (update)
     async updateCharacterById(charId: string, name: string, title: Array<string>, species: Array<string>, gender: string, actor: string, picutre: string){ 

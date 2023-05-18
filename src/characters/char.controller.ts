@@ -32,6 +32,18 @@ export class characterController {
         return char;
     }
 
+    @Get('gender/Male')
+    async getAllGuys() {
+        const guys = await this.charsService.gettAllGuys(); 
+        return guys;
+    }
+
+    @Get('gender/Female')
+    async getAllGals() {
+        const girls = await this.charsService.getAllGals(); 
+        return girls;
+    }
+
     @Patch(':id')
     async updateCharById(
         @Param('id') charId: string,

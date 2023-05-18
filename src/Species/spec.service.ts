@@ -19,7 +19,6 @@ export class speciesService{
              
         }); 
         const result = await newSpecies.save(); // waiting for the new species to be created, and then using it 
-        // console.log(result); 
         return result.id as string; // returning the new id of what you made and making it a string 
     }
 
