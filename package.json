@@ -24,11 +24,14 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/mongoose": "^9.2.2",
     "@nestjs/platform-express": "^9.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "mongoose": "^7.1.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.2.7",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
